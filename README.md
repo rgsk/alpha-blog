@@ -13,3 +13,4 @@ rails server / rails s
 // for production
 bundle config set without 'production'
 bundle install
+heroku run rails db:migrate

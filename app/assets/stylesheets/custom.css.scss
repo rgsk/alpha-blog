@@ -37,3 +37,24 @@ body {
 #sticky-footer {
   flex-shrink: none;
 }
+#bar {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+}
+.article {
+  max-width: 700px;
+  margin: auto;
+}
+@media (max-width: 900px) {
+  .form-group {
+    flex-direction: column;
+    align-items: center;
+  }
+  .col-form-label {
+    align-self: flex-start;
+    margin-left: 2.5rem;
+  }  
+}
