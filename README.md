@@ -1,24 +1,15 @@
-# README
+important commands
+rails generate controller pages
+rails routes --expanded
+rails console / rails c
+inside rails console
+Article.all
+Article.find
+article.save
+article.update
+article.destroy
+rails server / rails s
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+// for production
+bundle config set without 'production'
+bundle install
