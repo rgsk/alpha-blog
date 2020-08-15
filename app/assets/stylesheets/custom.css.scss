@@ -20,7 +20,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 425px;
 }
 /* Sticky Footer Classes */
 
@@ -50,6 +49,9 @@ body {
 }
 
 @media (max-width: 900px) {
+  .container {
+    width: 100%;
+  }
   .form-group {
     flex-direction: column;
     align-items: center;
