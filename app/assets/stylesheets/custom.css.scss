@@ -83,7 +83,7 @@ body {
     }
     a {
         border: 1px solid whitesmoke;
-        color: blue;
+        color: #17a2b8;
         text-decoration: none;
         &:hover,
         &:focus {
@@ -106,5 +106,19 @@ body {
     }
     .next_page {
         margin-left: 1em;
+    }
+}
+.nav-tabs{
+    border: none;
+    .nav-item{
+        .nav-link{
+            &:hover,
+            &:focus, 
+            &.active{
+                color: black !important;
+                background-color: white;
+                border: 1px solid #17a2b8;
+            }
+        }
     }
 }
