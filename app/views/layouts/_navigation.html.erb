@@ -41,7 +41,7 @@
         <% else %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle <%= active(user_path(current_user)) + active(edit_user_path(current_user)) %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.username %>
+              <%= current_user.username %> <%= "(admin)" if current_user.admin? %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to "View Profile", user_path(current_user), class: "dropdown-item"%>
