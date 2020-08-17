@@ -20,7 +20,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 475px;
 }
 /* Sticky Footer Classes */
 
@@ -112,13 +111,20 @@ body {
     border: none;
     .nav-item{
         .nav-link{
+            text-align: center;
             &:hover,
             &:focus, 
             &:active,
             &.active{
-                color: black !important;
-                background-color: white;
-                border: 1px solid #17a2b8;
+                color: white !important;
+                background-color: black;
+                @media (min-width: 990px){
+                    & {
+                        color: black !important;
+                        background-color: white;
+                        border: 1px solid #17a2b8;
+                    }
+                }
             }
         }
     }
