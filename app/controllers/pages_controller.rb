@@ -3,4 +3,7 @@ class PagesController < ApplicationController
   end
   def about
   end
+  def error
+    flash.now[:alert] = "Requested URL not found"
+  end
 end

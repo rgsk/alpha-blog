@@ -7,21 +7,53 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto nav-tabs">
+      <li class="nav-item">
+        <%= link_to "Bloggers", users_path, class: "nav-link" + active(users_path)%>
+      </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle <%= active(articles_path) %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Articles
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% if logged_in? %>
           <%= link_to "Create new article", new_article_path, class: "dropdown-item"%>
           <div class="dropdown-divider"></div>
+          <% end %>
           <%= link_to "View Articles", articles_path, class: "dropdown-item"%>
         </div>
       </li>
-      <li class="nav-item">
-        <%= link_to "About", about_path, class: "nav-link"%>
-      </li>
       
+      
+      <li class="nav-item">
+        <%= link_to "About", about_path, class: "nav-link" + active(about_path) %>
+      </li>
+       
+    </ul>
+    <ul class="navbar-nav ml-auto mr-3 nav-tabs">
+        <% if !logged_in? %>
+          <li class="nav-item">
+            <%= link_to "Login", login_path, class: "nav-link" + active(login_path)%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "SignUp", signup_path, class: "nav-link"+ active(signup_path)%>
+          </li>
+        <% else %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle <%= active(user_path(current_user)) + active(edit_user_path(current_user)) %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.username %> <%= "(admin)" if current_user.admin? %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "View Profile", user_path(current_user), class: "dropdown-item"%>
+              <%= link_to "Edit Profile", edit_user_path(current_user), class: "dropdown-item"%>
+              <%= link_to "Delete Account", user_path(current_user), class: "dropdown-item text-danger", method: [:delete],
+               data: {confirm: "Are you sure you want delete your account with us?"}%>
+            </div>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Logout", logout_path, class: "nav-link", method: :delete %>
+          </li>
+        <% end %>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
