@@ -114,6 +114,7 @@ body {
         .nav-link{
             &:hover,
             &:focus, 
+            &:active,
             &.active{
                 color: black !important;
                 background-color: white;
